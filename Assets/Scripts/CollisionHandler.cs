@@ -1,8 +1,11 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class CollisionHandler : MonoBehaviour
 {
+    [SerializeField] float delyNextLevel = 2f;
+    
     void OnCollisionEnter(Collision other)
     {
         switch (other.gameObject.tag)
@@ -11,16 +14,33 @@ public class CollisionHandler : MonoBehaviour
                 Debug.Log("Collided with Friendly Object!");
                 break;
             case "Finish":
-                NextLevel();
+                StartVictorySequence();
                 break;
-            case "Fuel":
-                Debug.Log("Grabed some Fuel!");
-                break;
+            //case "Fuel":
+              //Debug.Log("Grabed some Fuel!");
+                //break;
             default:
-                ReloadLevel();
+               StartCrashSequence();
                 break;
         }
     }
+
+    void StartVictorySequence()
+    {
+        // to-do: add SFX upon crash
+        // to-do: add particle effects
+        GetComponent<Movement>().enabled = false;
+        Invoke ("NextLevel", delyNextLevel);
+    }
+
+    void StartCrashSequence()
+    {
+        // to-do: add SFX upon crash
+        // to-do: add particle effects
+        GetComponent<Movement>().enabled = false;
+        Invoke ("ReloadLevel", delyNextLevel);
+    }
+
     void NextLevel()
     {
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
