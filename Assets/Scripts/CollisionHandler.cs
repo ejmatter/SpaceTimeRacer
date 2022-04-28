@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CollisionHandler : MonoBehaviour
 {
@@ -16,8 +17,16 @@ public class CollisionHandler : MonoBehaviour
                 Debug.Log("Grabed some Fuel!");
                 break;
             default:
-                Debug.Log("You hit debris!");
+                ReloadLevel();
                 break;
         }
     }
+    void ReloadLevel()
+    {
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(currentSceneIndex);
+    }
+
+
+
 }
