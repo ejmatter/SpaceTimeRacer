@@ -11,7 +11,7 @@ public class CollisionHandler : MonoBehaviour
                 Debug.Log("Collided with Friendly Object!");
                 break;
             case "Finish":
-                Debug.Log("Made it to the Finish Line!");
+                NextLevel();
                 break;
             case "Fuel":
                 Debug.Log("Grabed some Fuel!");
@@ -21,12 +21,21 @@ public class CollisionHandler : MonoBehaviour
                 break;
         }
     }
+    void NextLevel()
+    {
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        int nextSceneIndex = currentSceneIndex + 1;
+        if (nextSceneIndex == SceneManager.sceneCountInBuildSettings)
+        {
+            nextSceneIndex = 0;
+        }
+        SceneManager.LoadScene(nextSceneIndex);
+    } 
     void ReloadLevel()
     {
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentSceneIndex);
     }
-
 
 
 }
