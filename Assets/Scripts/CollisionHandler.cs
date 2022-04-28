@@ -4,11 +4,16 @@ using UnityEngine.SceneManagement;
 
 public class CollisionHandler : MonoBehaviour
 {
+   // PARAMETERS - for tuning, typically set in editor
+   // CACHE - e.g. references for readability or speed
+   // STATE - private instance (member) variables
     [SerializeField] float delyNextLevel = 2f;
-    [SerializeField] AudioClip crash;
-    [SerializeField] AudioClip victory;
+    [SerializeField] AudioClip crashSound;
+    [SerializeField] AudioClip victorySound;
    
     AudioSource audioSource;
+
+    bool isTransitioning = false;
 
     void Start()
     {
@@ -17,6 +22,8 @@ public class CollisionHandler : MonoBehaviour
 
     void OnCollisionEnter(Collision other)
     {
+        if (isTransitioning) { return;}
+
         switch (other.gameObject.tag)
         {
             case "Friendly":
@@ -29,15 +36,16 @@ public class CollisionHandler : MonoBehaviour
               //Debug.Log("Grabed some Fuel!");
                 //break;
             default:
-               StartCrashSequence();
+                StartCrashSequence();
                 break;
         }
     }
 
     void StartVictorySequence()
     {
-        audioSource.PlayOneShot(victory);
-        // to-do: add SFX upon crash
+        isTransitioning = true;
+        audioSource.Stop();
+        audioSource.PlayOneShot(victorySound);
         // to-do: add particle effects
         GetComponent<Movement>().enabled = false;
         Invoke ("NextLevel", delyNextLevel);
@@ -45,7 +53,9 @@ public class CollisionHandler : MonoBehaviour
 
     void StartCrashSequence()
     {
-        audioSource.PlayOneShot(crash);
+        isTransitioning = true;
+        audioSource.Stop();
+        audioSource.PlayOneShot(crashSound);
         // to-do: add particle effects
         GetComponent<Movement>().enabled = false;
         Invoke ("ReloadLevel", delyNextLevel);
