@@ -32,52 +32,77 @@ public class Movement : MonoBehaviour
         void ProcessThrust()
         {    
             if (Input.GetKey(KeyCode.Space))
-            {
-                rb.AddRelativeForce(Vector3.up * mainThrust * Time.deltaTime);
-                if(!audioEngine.isPlaying)
-                {
-                    audioEngine.PlayOneShot(mainEngine);
-                }
-                if (!mainBooster.isPlaying)
-                {
-                    mainBooster.Play(); 
-                }
-                if (!secondaryBooster.isPlaying)
-                {
-                    secondaryBooster.Play();
-                }
-            }
-            else
-            {
-                audioEngine.Stop();
-                mainBooster.Stop();
-                secondaryBooster.Stop();
-            }
+        {
+            StartThrusters();
         }
-        void ProcessRotation()
+        else
+        {
+            StopThrusters();
+        }
+    }
+    void ProcessRotation()
         {
             if (Input.GetKey(KeyCode.A))
+            {
+                RotateLeft();
+            }
+        else if (Input.GetKey(KeyCode.D))
+            {
+                RotateRight();
+            }
+        else
+            {
+                StopRotation();
+            }
+    }
+
+    void RotateLeft()
+    {
+        ApplyRotation(rotationThrust);
+        if (!leftBooster.isPlaying)
         {
-            ApplyRotation(rotationThrust);
-            if (!leftBooster.isPlaying) 
-            { 
-                leftBooster.Play();
-            }
+            leftBooster.Play();
         }
-            else if (Input.GetKey(KeyCode.D))
-            {
-                ApplyRotation(-rotationThrust);
-                if (!rightBooster.isPlaying) 
-                {
-                    rightBooster.Play();
-                }
-            }
-            else 
-            {
-                leftBooster.Stop();
-                rightBooster.Stop();
-            }
+    }
+
+    void RotateRight()
+    {
+        ApplyRotation(-rotationThrust);
+        if (!rightBooster.isPlaying)
+        {
+            rightBooster.Play();
         }
+    }
+
+    void StopRotation()
+    {
+        leftBooster.Stop();
+        rightBooster.Stop();
+    }
+
+    void StartThrusters()
+    {
+        rb.AddRelativeForce(Vector3.up * mainThrust * Time.deltaTime);
+        if (!audioEngine.isPlaying)
+        {
+            audioEngine.PlayOneShot(mainEngine);
+        }
+        if (!mainBooster.isPlaying)
+        {
+            mainBooster.Play();
+        }
+        if (!secondaryBooster.isPlaying)
+        {
+            secondaryBooster.Play();
+        }
+    }
+
+    void StopThrusters()
+    {
+        audioEngine.Stop();
+        mainBooster.Stop();
+        secondaryBooster.Stop();
+    }
 
     void ApplyRotation(float rotationThisFrame)
     {
