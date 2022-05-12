@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Journey to Redawn.unity
     guid: a8901f09f709a0c4f928a6f4b2f59126
+  - enabled: 1
+    path: Assets/Scenes/Redawn Finish.unity
+    guid: 3cb1fc7dcd75ad14293a2b5c540ba18a
   m_configObjects: {}

@@ -26,20 +26,20 @@ public class CollisionHandler : MonoBehaviour
 
     void Update()
     {
-        RespondToDebugKeys ();    
+        // RespondToDebugKeys ();    
     }
 
-    void RespondToDebugKeys ()
-    {
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            NextLevel();
-        }
-        else if (Input.GetKeyDown(KeyCode.C))
-        {
-            collisionDisabled = !collisionDisabled; // A way to toggle collision, or bools in general
-        }
-    }
+    //void RespondToDebugKeys ()
+    // {
+      //  if (Input.GetKeyDown(KeyCode.L))
+       // {
+        //    NextLevel();
+        //}
+        //else if (Input.GetKeyDown(KeyCode.C))
+        //{
+         //   collisionDisabled = !collisionDisabled; // A way to toggle collision, or bools in general
+        //}
+    //  }
 
     void OnCollisionEnter(Collision other)
     {
