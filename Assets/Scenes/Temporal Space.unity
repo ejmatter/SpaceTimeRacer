@@ -151,7 +151,7 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.4142033, g: 0.8584906, b: 0.093948066, a: 1}
   m_Intensity: 4.95
   m_Range: 10
   m_SpotAngle: 30
@@ -467,7 +467,7 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.6603774, g: 0.4182234, b: 0.009968, a: 1}
   m_Intensity: 4.95
   m_Range: 10
   m_SpotAngle: 30
@@ -643,7 +643,7 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.6320754, g: 0.4492656, b: 0.08705948, a: 1}
   m_Intensity: 4.95
   m_Range: 10
   m_SpotAngle: 30
@@ -719,21 +719,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Landing Pad
       objectReference: {fileID: 0}
-    - target: {fileID: 3053136155380881523, guid: 1617d553ad9c4594093ef488c55dae70, type: 3}
-      propertyPath: m_TagString
-      value: Finish
-      objectReference: {fileID: 0}
     - target: {fileID: 3053136155380881527, guid: 1617d553ad9c4594093ef488c55dae70, type: 3}
       propertyPath: m_RootOrder
       value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3053136155380881527, guid: 1617d553ad9c4594093ef488c55dae70, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 2.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3053136155380881527, guid: 1617d553ad9c4594093ef488c55dae70, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 3053136155380881527, guid: 1617d553ad9c4594093ef488c55dae70, type: 3}
       propertyPath: m_LocalPosition.x
@@ -853,21 +841,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Launch Pad
       objectReference: {fileID: 0}
-    - target: {fileID: 4793444601518685114, guid: 91368bf1569b02340a8e0818adc32724, type: 3}
-      propertyPath: m_TagString
-      value: Friendly
-      objectReference: {fileID: 0}
     - target: {fileID: 4898024835913657188, guid: 91368bf1569b02340a8e0818adc32724, type: 3}
       propertyPath: m_RootOrder
       value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4898024835913657188, guid: 91368bf1569b02340a8e0818adc32724, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 2.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4898024835913657188, guid: 91368bf1569b02340a8e0818adc32724, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 4898024835913657188, guid: 91368bf1569b02340a8e0818adc32724, type: 3}
       propertyPath: m_LocalPosition.x
